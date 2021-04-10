@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
-import './Input.css';
+import "./Input.css";
 
 const input = props => (
   <div className="input">
     {props.label && <label htmlFor={props.id}>{props.label}</label>}
-    {props.control === 'input' && (
+    {props.control === "input" && (
       <input
         className={[
-          !props.valid ? 'invalid' : 'valid',
-          props.touched ? 'touched' : 'untouched'
-        ].join(' ')}
+          !props.valid ? "invalid" : "valid",
+          props.touched ? "touched" : "untouched",
+        ].join(" ")}
         type={props.type}
         id={props.id}
         required={props.required}
@@ -20,12 +20,12 @@ const input = props => (
         onBlur={props.onBlur}
       />
     )}
-    {props.control === 'textarea' && (
+    {props.control === "textarea" && (
       <textarea
         className={[
-          !props.valid ? 'invalid' : 'valid',
-          props.touched ? 'touched' : 'untouched'
-        ].join(' ')}
+          !props.valid ? "invalid" : "valid",
+          props.touched ? "touched" : "untouched",
+        ].join(" ")}
         id={props.id}
         rows={props.rows}
         required={props.required}

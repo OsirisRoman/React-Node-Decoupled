@@ -1,27 +1,27 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import Input from '../../components/Form/Input/Input';
-import Button from '../../components/Button/Button';
-import { required, length, email } from '../../util/validators';
-import Auth from './Auth';
+import Input from "../../components/Form/Input/Input";
+import Button from "../../components/Button/Button";
+import { required, length, email } from "../../util/validators";
+import Auth from "./Auth";
 
 class Login extends Component {
   state = {
     loginForm: {
       email: {
-        value: '',
+        value: "",
         valid: false,
         touched: false,
-        validators: [required, email]
+        validators: [required, email],
       },
       password: {
-        value: '',
+        value: "",
         valid: false,
         touched: false,
-        validators: [required, length({ min: 5 })]
+        validators: [required, length({ min: 5 })],
       },
-      formIsValid: false
-    }
+      formIsValid: false,
+    },
   };
 
   inputChangeHandler = (input, value) => {
@@ -35,8 +35,8 @@ class Login extends Component {
         [input]: {
           ...prevState.loginForm[input],
           valid: isValid,
-          value: value
-        }
+          value: value,
+        },
       };
       let formIsValid = true;
       for (const inputName in updatedForm) {
@@ -44,7 +44,7 @@ class Login extends Component {
       }
       return {
         loginForm: updatedForm,
-        formIsValid: formIsValid
+        formIsValid: formIsValid,
       };
     });
   };
@@ -56,9 +56,9 @@ class Login extends Component {
           ...prevState.loginForm,
           [input]: {
             ...prevState.loginForm[input],
-            touched: true
-          }
-        }
+            touched: true,
+          },
+        },
       };
     });
   };
@@ -70,20 +70,19 @@ class Login extends Component {
           onSubmit={e =>
             this.props.onLogin(e, {
               email: this.state.loginForm.email.value,
-              password: this.state.loginForm.password.value
+              password: this.state.loginForm.password.value,
             })
-          }
-        >
+          }>
           <Input
             id="email"
             label="Your E-Mail"
             type="email"
             control="input"
             onChange={this.inputChangeHandler}
-            onBlur={this.inputBlurHandler.bind(this, 'email')}
-            value={this.state.loginForm['email'].value}
-            valid={this.state.loginForm['email'].valid}
-            touched={this.state.loginForm['email'].touched}
+            onBlur={this.inputBlurHandler.bind(this, "email")}
+            value={this.state.loginForm["email"].value}
+            valid={this.state.loginForm["email"].valid}
+            touched={this.state.loginForm["email"].touched}
           />
           <Input
             id="password"
@@ -91,10 +90,10 @@ class Login extends Component {
             type="password"
             control="input"
             onChange={this.inputChangeHandler}
-            onBlur={this.inputBlurHandler.bind(this, 'password')}
-            value={this.state.loginForm['password'].value}
-            valid={this.state.loginForm['password'].valid}
-            touched={this.state.loginForm['password'].touched}
+            onBlur={this.inputBlurHandler.bind(this, "password")}
+            value={this.state.loginForm["password"].value}
+            valid={this.state.loginForm["password"].valid}
+            touched={this.state.loginForm["password"].touched}
           />
           <Button design="raised" type="submit" loading={this.props.loading}>
             Login

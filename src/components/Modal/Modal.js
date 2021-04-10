@@ -1,8 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
-import Button from '../Button/Button';
-import './Modal.css';
+import Button from "../Button/Button";
+import "./Modal.css";
 
 const modal = props =>
   ReactDOM.createPortal(
@@ -19,13 +19,12 @@ const modal = props =>
           mode="raised"
           onClick={props.onAcceptModal}
           disabled={!props.acceptEnabled}
-          loading={props.isLoading}
-        >
+          loading={props.isLoading}>
           Accept
         </Button>
       </div>
     </div>,
-    document.getElementById('modal-root')
+    document.getElementById("modal-root")
   );
 
 export default modal;
